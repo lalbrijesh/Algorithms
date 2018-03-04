@@ -1,7 +1,4 @@
 
-//first made this prog as simple linked list
-//modified it to circular doubly linked list
-
 public class LinkedList{
 	Node head;
 	
@@ -13,13 +10,11 @@ public class LinkedList{
 		
 		if(head==null){
 			head = n;
-			head.next = head;		//imp for circular linked list
+			head.next = head;		
 		}
 		else{
-			//Node temp = new Node();
-			Node temp = head;	//?? depends on ide, but better use with new()
+			Node temp = head;	
 			while(temp.next!=head){		//check till last element pointing to head
-				//temp.next = temp.next.next;	//this will only move the pointer...but we have to move the temp to next node
 				temp = temp.next;	//moves temp to next node				
 			}
 			temp.next = n;
@@ -42,9 +37,8 @@ public class LinkedList{
 		else{
 			Node temp = new Node();
 			temp = head;
-			for(int i=0;i<index-1;i++){		//we use for instead of while in cases with index value	//we use index-1 coz we need to stop
-											//at 1, and i increments to 1 but does not execute the loop
-				temp = temp.next;		//this is just for traversing
+			for(int i=0;i<index-1;i++){		//we use index-1 coz we need to stop at 1, and i increments to 1 but does not execute the loop
+				temp = temp.next;		
 			}
 			n.next = temp.next;
 			n.prev = temp;
@@ -61,19 +55,17 @@ public class LinkedList{
 			Node temp = new Node();
 			temp = head;
 			for(int i=0;i<index-1;i++){
-				temp = temp.next;		//we are moving the whole temp node to next node
-			}
-			//Node del = temp.next;		
+				temp = temp.next;		//we are moving the temp node to next node
+			}	
 			temp.next = temp.next.next;
 			temp.next.prev = temp;
-			//del = null;		//just to make it eligible for garbage collection
 		}
 	}		
 	
-	public void show(){		//what if no element is present
+	public void show(){		
 		Node temp = head;
 		if(head==null){
-			System.out.println("No element to print");
+			System.out.println("No element to print.");
 		}
 		else{
 			while(temp.next!=head){
