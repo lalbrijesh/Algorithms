@@ -1,3 +1,8 @@
+/*
+Author: Brijesh Lal
+
+Program implementing circular doubly Linked List
+*/
 
 public class LinkedList{
 	
